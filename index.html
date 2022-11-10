@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ff</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body> 
+  <script src="script.js"></script>
+
+    <h1>Create FHIR request</h1>
+
+    <!-- Enter serviceRootURL here -->
+    <input type="text" id="serviceRootURL" value="https://hapi.fhir.org/baseR4" placeholder="serviceRootURL" size="50" />
+
+    <h2>patientIdentifier</h2>
+
+    <h3>Retrieve patient</h3>
+
+    <!-- Text input -->
+    <input type="text" id="patientIdentifier" value="7d74f5d9-d5bf-4098-bb31-d73b9e14a060" placeholder="patientIdentifier" />
+    <br>
+    <button onclick="retrievePatient(false)">Submit</button>
+    <button onclick="retrievePatient(true)">Submit and go</button>
+    <br>
+
+    <h3>Retrieve observation</h3>
+    <button id="retrieveObservation1" onclick="retrieveObservation(false)">Submit</button>
+    <button onclick="retrieveObservation(true)">Submit and go</button>
+
+    <h2>observationCode (with valueQuantity)</h2>
+
+    <h3>Retrieve observation</h3>
+    <input type="text" id="observationCode" value="8480-6" placeholder="observationCode" />
+    <input type="text" id="valueQuantity" value="" placeholder="valueQuantity (optional)" />
+    <br>
+    <button id="retrieveObservation2" onclick="retrieveObservationResult(false)">Submit</button>
+    <button onclick="retrieveObservationResult(true)">Submit and go</button>
+
+    <h3>Retrieve patient</h3>
+    <button id="retrieveObservation3" onclick="retrieveObservationResult2(false)">Submit</button>
+    <button onclick="retrieveObservationResult2(true)">Submit and go</button>
+
+
+    <!-- Text with an id that can be changed by js -->
+    <p id="output"></p>
+
+
+</body>
+
+</html>
