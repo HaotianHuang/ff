@@ -68,10 +68,15 @@ function retrieveObservationResult(goBoolean) {
 
     // Create a new variable that is the string variable with the string
 
-    var output = "Observation?code=http://loinc.org|" + observationCode;
+    var output = "";
 
+    // If valueQuantity IS specified
     if (valueQuantity != null && valueQuantity != "") {
-        output = output + "&value-quantity=" + valueQuantity;
+        // output = output + "&value-quantity=" + valueQuantity;
+        output = "Observation?code-value-quantity=http://loinc.org|" + observationCode + "$" + valueQuantity;
+
+    } else {
+        output = "Observation?code=http://loinc.org|" + observationCode;
     }
 
     // Store serviceRootURL in a variable from text box with id serviceRootURL
@@ -104,11 +109,18 @@ function retrieveObservationResult2(goBoolean) {
 
     // Create a new variable that is the string variable with the string
 
-    var output = "Patient?_has:Observation:patient:code=http://loinc.org|" + observationCode;
+    // var output = "Patient?_has:Observation:patient:code=http://loinc.org|" + observationCode;
 
+    var output = "";
+
+    // If valueQuantity IS specified
     if (valueQuantity != null && valueQuantity != "") {
-        output = output + "&_has:Observation:patient:value-quantity=" + valueQuantity;
+        output = "Patient?_has:Observation:patient:code-value-quantity=" + "http://loinc.org|" + observationCode + "$" + valueQuantity;
+    } else {
+        output = "Patient?_has:Observation:patient:code=http://loinc.org|" + observationCode;
     }
+
+    // output += "|http://unitsofmeasure.org|mmol/L";
 
     // Store serviceRootURL in a variable from text box with id serviceRootURL
     var serviceRootURL = document.getElementById("serviceRootURL").value;
