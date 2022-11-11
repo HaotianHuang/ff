@@ -34,8 +34,14 @@
     <h2>observationCode (with valueQuantity)</h2>
 
     <h3>Retrieve observation</h3>
+
     <input type="text" id="observationCode" value="8480-6" placeholder="observationCode" />
     <input type="text" id="valueQuantity" value="" placeholder="valueQuantity (optional)" />
+
+    <div class="autocomplete" >
+      <input id="observationName" type="text" name="observationName" placeholder="Observation name">
+    </div>
+
     <br>
     <button id="retrieveObservation2" onclick="retrieveObservationResult(false)">Submit</button>
     <button onclick="retrieveObservationResult(true)">Submit and go</button>
